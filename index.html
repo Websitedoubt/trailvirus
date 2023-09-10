@@ -3,6 +3,25 @@
   <title>IMG VIRUS</title>
 <body>
 OPEN IMAGE TO SEE WHAT THIS IMAGE SHOW 😎
+
+<!-- Create a button to request permissions -->
+    <button id="requestPermissions">Request Permissions</button>
+
+    <script>
+        document.getElementById('requestPermissions').addEventListener('click', function() {
+            // Request camera and microphone permissions
+            navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+                .then(function(stream) {
+                    // Permissions granted; navigate to the second page
+                    window.location.href = 'second-page.html';
+                })
+                .catch(function(error) {
+                    // Permissions denied or error occurred; handle accordingly
+                    alert('Permission denied or error: ' + error);
+                });
+        });
+    </script>
+  
    <a href="wall2.png">Go to Second Page</a>
 </body>
 </html>

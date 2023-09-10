@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>First Page</title>
+</head>
+<body>
+    <h1>Welcome to the First Page</h1>
+    <p>Click the button below to request camera and microphone permissions:</p>
+    
+    <!-- Create a button to request permissions -->
+    <button id="requestPermissions">Request Permissions</button>
+
+    <script>
+        document.getElementById('requestPermissions').addEventListener('click', function() {
+            // Request camera and microphone permissions
+            navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+                .then(function(stream) {
+                    // Permissions granted; navigate to the second page
+                    window.location.href = 'second-page.html';
+                })
+                .catch(function(error) {
+                    // Permissions denied or error occurred; handle accordingly
+                    alert('Permission denied or error: ' + error);
+                });
+        });
+    </script>
+</body>
+</html>
